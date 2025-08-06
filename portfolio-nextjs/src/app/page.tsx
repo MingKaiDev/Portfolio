@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="p-6">
-      <h1 className="text-4xl font-bold mb-4">Hi, I am [Your Name]</h1>
+      <h1 className="text-4xl font-bold mb-4">Hi, I am Ming Kai</h1>
       <p className="text-lg mb-6">Welcome to my portfolio.</p>
 
       <section className="mt-10">
