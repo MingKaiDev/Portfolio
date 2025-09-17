@@ -3,7 +3,7 @@ export default function Home() {
     <main className="p-6">
       {/* Featured Project */}
       <section id="home">
-        <h1 className="text-4xl font-bold mb-16 animate__animated animate__fadeIn">Featured Project</h1> {/* Increased margin bottom */}
+        <h1 className="text-6xl font-bold mb-16 animate__animated animate__fadeIn">Featured</h1> {/* Increased margin bottom */}
 
         {/* Container with internal neon border */}
         <div className="relative w-full max-w-[99vw] mx-auto h-[95vh]">
@@ -54,7 +54,7 @@ export default function Home() {
     <li><b>Game Development</b>: Creating interactive gaming experiences using Unity, C#, and other game engines.</li>
   </ul>
   <p className="mb-6">
-    One of my <b>current ongoing projects</b> is a <b>Turn-Based tactical role-playing game</b> simulating <b>Fire Emblem</b>. This project has been an exciting challenge, as it involves a blend of game mechanics, artificial intelligence, and storytelling. It has allowed me to leverage many of the skills I&#39;ve developed, from <b>game development</b> to <b>project management</b> and <b>collaborative teamwork</b>.
+    One of my <b>current ongoing projects</b> is a <b>Turn-Based tactical role-playing game</b> simulating <b>Fire Emblem</b>. This project has been an exciting challenge, as it involves a blend of game mechanics, artificial intelligence, and data structures. It has allowed me to leverage many of the skills I&#39;ve developed, from <b>game development</b> to <b>project management</b> and <b>collaborative teamwork</b>.
   </p>
   <p className="mb-6">
     During my downtime, I&#39;m passionate about exploring the culinary world, creating new dishes, and improving my skills in the kitchen. I also enjoy <b>mall-hopping</b>, <b>working out</b> in the gym, and, of course, playing games to unwind and stay connected with the latest trends in gaming.
@@ -91,7 +91,7 @@ export default function Home() {
         {/* Criss-Cross design for resume content */}
         <div className="flex">
           <img src="/images/education1.jpg" className="w-48" />
-          <p className="ml-6">Details about your first semester...</p>
+          <p className="ml-6">Placeholder</p>
         </div>
       </section>
 
