@@ -25,7 +25,7 @@ export default function Home() {
             muted
             className="w-full h-full object-cover rounded-lg z-0" // Increased height (60vh means 60% of the viewport height)
           >
-            <source src="/items/placeholder.mp4" type="video/mp4" />
+            <source src="/items/PortfolioVideo.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
