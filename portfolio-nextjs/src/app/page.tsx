@@ -1,3 +1,6 @@
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+
+
 export default function Home() {
   return (
     <main className="p-6">
@@ -97,12 +100,30 @@ export default function Home() {
 
       {/* Contact Me */}
       <section id="contact" className="mt-10">
-        <h2 className="text-3xl font-semibold">Contact Me</h2>
-        <div className="flex">
-          <a href="https://github.com/MingKaiDev" className="mr-4">GitHub</a>
-          <a href="https://www.linkedin.com/in/mingkai/" className="mr-4">LinkedIn</a>
-        </div>
-      </section>
+  <h2 className="text-3xl font-semibold mb-6">Contact Me</h2> {/* Added margin-bottom to separate title and icons */}
+
+  {/* Container for the icons */}
+  <div className="flex flex-col items-center space-y-6">
+    {/* LinkedIn and GitHub Icons */}
+    <a
+      href="https://www.linkedin.com/in/ming-kai-gay-2306aa163"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-5xl text-blue-600 hover:text-blue-800 transition-all duration-300"
+    >
+      <FaLinkedin /> {/* Larger LinkedIn Icon */}
+    </a>
+    <a
+      href="https://github.com/MingKaiDev"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-5xl text-gray-800 hover:text-gray-600 transition-all duration-300"
+    >
+      <FaGithub /> {/* Larger GitHub Icon */}
+    </a>
+  </div>
+</section>
+
     </main>
   );
 }
