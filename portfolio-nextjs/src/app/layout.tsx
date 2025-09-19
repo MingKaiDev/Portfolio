@@ -42,6 +42,24 @@ export default function RootLayout({ children,
               About Me
             </Link>
             <Link
+              href="#experience"
+              className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
+            >
+              Experience
+            </Link>
+            <Link
+              href="#skills"
+              className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
+            >
+              Skills
+            </Link>
+            <Link
+              href="#achievements"
+              className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
+            >
+              Achievements
+            </Link>
+            <Link
               href="#projects"
               className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
             >
