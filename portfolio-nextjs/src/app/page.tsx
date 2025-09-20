@@ -3,44 +3,37 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="p-6">
+    <main className="h-screen snap-y snap-mandatory p-6">
+
       {/* Featured Project */}
-      <section id="home">
-        <h1 className="text-6xl font-bold mb-16 animate__animated animate__fadeIn">Featured</h1> {/* Increased margin bottom */}
+      <section id="home" className="min-h-screen snap-start flex flex-col justify-center gap-8">
+  <h1 className="text-6xl font-bold">Featured</h1>
+  <div className="relative w-full max-w-[99vw] mx-auto h-[70vh]">
+    <div
+      className="absolute inset-0 z-10 rounded-lg"
+      style={{
+        borderColor: '#6a23ddff',
+        borderWidth: '10px',
+        borderStyle: 'solid',
+        borderRadius: '20px',
+        boxShadow: '0 0 20px 10px rgba(67, 22, 194, 0.88)',
+      }}
+    />
+    <video autoPlay loop muted className="w-full h-full object-cover rounded-lg z-0">
+      <source src="/items/PortfolioVideo.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
 
-        {/* Container with internal neon border */}
-        <div className="relative w-full max-w-[99vw] mx-auto h-[95vh]">
-          {/* Custom neon border */}
-          <div
-            className="absolute inset-0 z-10 border-4 rounded-lg"
-            style={{
-              borderColor: '#6a23ddff', // Neon color
-              borderWidth: '10px', // Thicker border
-              borderRadius: '20px', // Rounded corners
-              boxShadow: '0 0 20px 10px rgba(67, 22, 194, 0.88)', // Neon glow effect
-            }}
-          ></div>
-
-          {/* Video Inside the Neon Border */}
-          <video
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover rounded-lg z-0" // Increased height (60vh means 60% of the viewport height)
-          >
-            <source src="/items/PortfolioVideo.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </section>
 
 
 
       {/* About */}
-      <section id="about" className="mt-[300px]">
-        <h2 className="text-3xl font-semibold mb-8">Hello, I am Ming Kai</h2>
+      <section id="about" className="min-h-screen snap-start flex flex-col justify-center gap-8 scroll-mt-8">
+  <h2 className="text-3xl font-semibold">Hello, I am Ming Kai</h2>
 
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-          <div className="text-center md:text-left font-serif text-lg leading-relaxed">
+  <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <div className="text-center md:text-left font-serif text-lg leading-relaxed max-w-3xl">
             <p className="mb-6">
               I&#39;m a <b>penultimate Computer Science student</b> at <b>Nanyang Technological University</b>, currently working at <b>DBS</b> as a <b>Site Reliability Engineering automation intern</b>. My primary focus is on optimizing system reliability, automating processes, and learning how to scale applications in the cloud.
             </p>
@@ -68,19 +61,55 @@ export default function Home() {
           </div>
 
 
-          <img
-            src="/images/potrait.png"
-            alt="Ming Kai"
-            className="rounded-full w-128 h-128 object-cover md:ml-6"
-          />
-        </div>
-      </section>
-      
-      <section id="experience" className="mt-10">
-        <h2 className="text-3xl font-semibold">DBS Bank</h2>
-        {/* Criss-Cross design for resume content */}
-      </section>
-      
+           <img
+      src="/images/potrait.png"
+      alt="Ming Kai"
+      className="rounded-full w-[20rem] h-[20rem] object-cover md:ml-6"
+    />
+  </div>
+</section>
+
+      <section id="experience" className="min-h-screen snap-start flex flex-col justify-center gap-10">
+  <h2 className="text-4xl font-bold text-center">My Experiences</h2>
+
+  <div className="grid md:grid-cols-2 gap-10">
+    {/* Job 1 card */}
+    <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+      <div className="flex items-center gap-3 mb-2">
+        <img src="/images/dbsicon.jpg" alt="DBS Logo" className="w-14 h-14 rounded-full object-cover" />
+        <h3 className="text-2xl font-bold">DBS Bank</h3>
+      </div>
+      <p className="text-lg font-semibold text-gray-300">Site Reliability Engineer (Intern)</p>
+      <p className="text-lg  text-gray-300">May 2025 to Dec 2025</p>
+      <hr className="border-gray-600 my-4" />
+      <ul className="list-disc list-inside space-y-2">
+        <li>Temp</li>
+        <li>Temp</li>
+        <li>Temp</li>
+        <li>Temp</li>
+      </ul>
+    </div>
+
+    {/* Job 2 card */}
+    <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+      <div className="flex items-center gap-3 mb-2">
+        <img src="/images/ngeeannicon.gif" alt="Ngee Ann Logo" className="w-14 h-14 rounded-full object-cover" />
+        <h3 className="text-2xl font-bold">Ngee Ann Polytechnic</h3>
+      </div>
+      <p className="text-lg font-semibold text-gray-300">Technical Assistant</p>
+      <hr className="border-gray-600 my-4" />
+      <ul className="list-disc list-inside space-y-2">
+        <li>Temp</li>
+        <li>Temp</li>
+        <li>Temp</li>
+        <li>Temp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
       <section id="skills" className="mt-10">
         <h2 className="text-3xl font-semibold">Smoke</h2>
         {/* Criss-Cross design for resume content */}
@@ -92,18 +121,22 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-        <div className="project-card hover:scale-105 transition-all">
-          <img src="/images/project1.gif" alt="Project 1" className="w-full" />
-          <h3>Project 1</h3>
-        </div>
-        {/* More projects */}
-      </section>
+      <section id="projects" className="min-h-screen snap-start flex flex-col justify-center gap-8">
+  <h2 className="text-3xl font-semibold">Projects</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="project-card hover:scale-105 transition-all">
+      <img src="/images/project1.gif" alt="Project 1" className="w-full rounded-lg" />
+      <h3 className="mt-2 font-semibold">Project 1</h3>
+    </div>
+    {/* more cards */}
+  </div>
+</section>
+
 
       {/* Contact Me */}
       <section
         id="contact"
-        className="relative w-full h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+        className="relative w-full snap-start h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
       >
         {/* Section Title */}
         <h2 className="text-5xl font-bold text-white mb-6 tracking-wide">Contact Me</h2>

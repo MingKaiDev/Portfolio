@@ -65,12 +65,7 @@ export default function RootLayout({ children,
             >
               Projects
             </Link>
-            <Link
-              href="#resume"
-              className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
-            >
-              Resume
-            </Link>
+
             <Link
               href="#contact"
               className="text-xl font-extrabold text-white hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
