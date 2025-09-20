@@ -1,5 +1,5 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import Starfield from "../components/Starfield";
+import Starfield from "../components/StarField";
 
 
 export default function Home() {
