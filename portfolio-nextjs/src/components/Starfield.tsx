@@ -72,7 +72,7 @@ export default function Starfield({
       // stars
       ctx.fillStyle = starColor;
       const stars = starsRef.current;
-      for (let s of stars) {
+      for (const s of stars) {
         s.x += s.vx * dt;
         s.y += s.vy * dt;
 
