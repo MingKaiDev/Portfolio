@@ -1,4 +1,5 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Starfield from "../components/Starfield";
 
 
 export default function Home() {
@@ -6,17 +7,21 @@ export default function Home() {
     <main className="h-screen snap-y snap-mandatory p-6">
 
       {/* Featured Project */}
-      <section id="home" className="min-h-screen snap-start flex flex-col justify-center gap-8">
-  <h1 className="text-6xl font-bold">Featured</h1>
+      <section id="home" className="min-h-screen snap-start relative flex flex-col justify-center gap-8 overflow-hidden">
+  {/* starry background */}
+  <Starfield density={0.14} maxSpeed={0.05} />
+
+  <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold">Featured</h1>
+
   <div className="relative w-full max-w-[99vw] mx-auto h-[70vh]">
     <div
       className="absolute inset-0 z-10 rounded-lg"
       style={{
-        borderColor: '#6a23ddff',
-        borderWidth: '10px',
-        borderStyle: 'solid',
-        borderRadius: '20px',
-        boxShadow: '0 0 20px 10px rgba(67, 22, 194, 0.88)',
+        borderColor: "#6a23ddff",
+        borderWidth: "10px",
+        borderStyle: "solid",
+        borderRadius: "20px",
+        boxShadow: "0 0 20px 10px rgba(67, 22, 194, 0.88)",
       }}
     />
     <video autoPlay loop muted className="w-full h-full object-cover rounded-lg z-0">
@@ -25,88 +30,124 @@ export default function Home() {
   </div>
 </section>
 
-
-
-
       {/* About */}
-      <section id="about" className="min-h-screen snap-start flex flex-col justify-center gap-8 scroll-mt-8">
-  <h2 className="text-3xl font-semibold">Hello, I am Ming Kai</h2>
+      <section id="about" className="min-h-screen snap-start relative flex items-center">
+        {/* Background layer: soft radial + grid */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_20%_20%,rgba(106,35,221,0.25),transparent_60%)]" />
+          <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(90deg,#fff_1px,transparent_1px),linear-gradient(#fff_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
 
-  <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-    <div className="text-center md:text-left font-serif text-lg leading-relaxed max-w-3xl">
-            <p className="mb-6">
-              I&#39;m a <b>penultimate Computer Science student</b> at <b>Nanyang Technological University</b>, currently working at <b>DBS</b> as a <b>Site Reliability Engineering automation intern</b>. My primary focus is on optimizing system reliability, automating processes, and learning how to scale applications in the cloud.
-            </p>
-            <p className="mb-6">
-              Over the past <b>5+ years</b>, I&#39;ve gained hands-on experience in a variety of areas within <b>Information Technology</b>, including:
-            </p>
-            <ul className="list-disc pl-8 mb-6">
-              <li><b>Front-end Development</b>: Building dynamic and user-friendly web applications using technologies like React, JavaScript, and HTML/CSS.</li>
-              <li><b>Back-end Development</b>: Working with databases, APIs, and server-side technologies such as Node.js and Python.</li>
-              <li><b>Automation</b>: Writing scripts and tools to automate repetitive tasks, which significantly reduces manual errors and improves efficiency.</li>
-              <li><b>Computer Vision</b>: Implementing image processing algorithms and machine learning models for visual data analysis.</li>
-              <li><b>Web Development</b>: Creating responsive, scalable, and interactive websites and apps that meet modern standards and user needs.</li>
-              <li><b>App UI/UX</b>: Focusing on designing intuitive and beautiful user interfaces for mobile and web applications.</li>
-              <li><b>Game Development</b>: Creating interactive gaming experiences using Unity, C#, and other game engines.</li>
-            </ul>
-            <p className="mb-6">
-              One of my <b>current ongoing projects</b> is a <b>Turn-Based tactical role-playing game</b> simulating <b>Fire Emblem</b>. This project has been an exciting challenge, as it involves a blend of game mechanics, artificial intelligence, and data structures. It has allowed me to leverage many of the skills I&#39;ve developed, from <b>game development</b> to <b>project management</b> and <b>collaborative teamwork</b>.
-            </p>
-            <p className="mb-6">
-              During my downtime, I&#39;m passionate about exploring the culinary world, creating new dishes, and improving my skills in the kitchen. I also enjoy <b>mall-hopping</b>, <b>working out</b> in the gym, and, of course, playing games to unwind and stay connected with the latest trends in gaming.
-            </p>
-            <p className="mb-6">
-              I&#39;m always seeking new challenges to improve my knowledge and skills. Whether it&#39;s <b>learning new technologies</b> or tackling <b>complex problems</b>, I am committed to becoming a versatile developer and <b>problem-solver</b>.
-            </p>
+        <div className="container mx-auto px-6">
+          <div className="grid gap-10 md:gap-14 md:grid-cols-[auto,1fr] items-center">
+            {/* Profile image — bigger + responsive using clamp in rem */}
+            <img
+              src="/images/potrait.png"
+              alt="Portrait of Ming Kai"
+              className="rounded-full object-cover aspect-square
+                   w-[clamp(12rem,22vw,18rem)] ring-4 ring-purple-700/30 shadow-[0_0_60px_-20px_rgba(106,35,221,0.6)]"
+            />
+
+            {/* Text block */}
+            <div className="max-w-3xl">
+              {/* Hello header (responsive, gradient text) */}
+              <h2
+                className="font-semibold leading-tight
+                     text-[clamp(2.2rem,5vw,4rem)]
+                     bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-500
+                     bg-clip-text text-transparent"
+              >
+                Hello, I am Ming Kai
+              </h2>
+
+              {/* Short summary */}
+              <p className="mt-4 text-[clamp(1.05rem,1.4vw,1.25rem)] leading-relaxed text-gray-200/90">
+                I&#39;m a NTU Computer Science student and SRE automation intern at DBS, focused on reliability, tooling,
+                and developer experience. I enjoy shipping clean UIs, automating boring work, and building gameplay systems.
+              </p>
+
+              {/* Quick chips to avoid emptiness */}
+              <div className="mt-6 flex flex-wrap gap-2">
+                {[
+                  'Frontend (React/Next.js)',
+                  'Automation',
+                  'SRE / DevOps',
+                  'Game Systems',
+                  'UI/UX',
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1 rounded-full text-[0.85rem] bg-white/5 text-gray-200 border border-white/10"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href="#resume"
+                  className="inline-flex items-center justify-center px-5 py-3 rounded-lg
+                       bg-purple-600 hover:bg-purple-500 transition
+                       text-white shadow-lg shadow-purple-900/40"
+                >
+                  View Resume
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center px-5 py-3 rounded-lg
+                       bg-white/10 hover:bg-white/15 transition
+                       text-white border border-white/20 backdrop-blur"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
 
-           <img
-      src="/images/potrait.png"
-      alt="Ming Kai"
-      className="rounded-full w-[20rem] h-[20rem] object-cover md:ml-6"
-    />
-  </div>
-</section>
 
       <section id="experience" className="min-h-screen snap-start flex flex-col justify-center gap-10">
-  <h2 className="text-4xl font-bold text-center">My Experiences</h2>
+        <h2 className="text-4xl font-bold text-center">My Experiences</h2>
 
-  <div className="grid md:grid-cols-2 gap-10">
-    {/* Job 1 card */}
-    <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div className="flex items-center gap-3 mb-2">
-        <img src="/images/dbsicon.jpg" alt="DBS Logo" className="w-14 h-14 rounded-full object-cover" />
-        <h3 className="text-2xl font-bold">DBS Bank</h3>
-      </div>
-      <p className="text-lg font-semibold text-gray-300">Site Reliability Engineer (Intern)</p>
-      <p className="text-lg  text-gray-300">May 2025 to Dec 2025</p>
-      <hr className="border-gray-600 my-4" />
-      <ul className="list-disc list-inside space-y-2">
-        <li>Temp</li>
-        <li>Temp</li>
-        <li>Temp</li>
-        <li>Temp</li>
-      </ul>
-    </div>
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Job 1 card */}
+          <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/images/dbsicon.jpg" alt="DBS Logo" className="w-14 h-14 rounded-full object-cover" />
+              <h3 className="text-2xl font-bold">DBS Bank</h3>
+            </div>
+            <p className="text-lg font-semibold text-gray-300">Site Reliability Engineer (Intern)</p>
+            <p className="text-lg  text-gray-300">May 2025 to Dec 2025</p>
+            <hr className="border-gray-600 my-4" />
+            <ul className="list-disc list-inside space-y-2">
+              <li>Temp</li>
+              <li>Temp</li>
+              <li>Temp</li>
+              <li>Temp</li>
+            </ul>
+          </div>
 
-    {/* Job 2 card */}
-    <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div className="flex items-center gap-3 mb-2">
-        <img src="/images/ngeeannicon.gif" alt="Ngee Ann Logo" className="w-14 h-14 rounded-full object-cover" />
-        <h3 className="text-2xl font-bold">Ngee Ann Polytechnic</h3>
-      </div>
-      <p className="text-lg font-semibold text-gray-300">Technical Assistant</p>
-      <hr className="border-gray-600 my-4" />
-      <ul className="list-disc list-inside space-y-2">
-        <li>Temp</li>
-        <li>Temp</li>
-        <li>Temp</li>
-        <li>Temp</li>
-      </ul>
-    </div>
-  </div>
-</section>
+          {/* Job 2 card */}
+          <div className="bg-gray-800 text-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/images/ngeeannicon.gif" alt="Ngee Ann Logo" className="w-14 h-14 rounded-full object-cover" />
+              <h3 className="text-2xl font-bold">Ngee Ann Polytechnic</h3>
+            </div>
+            <p className="text-lg font-semibold text-gray-300">Technical Assistant</p>
+            <hr className="border-gray-600 my-4" />
+            <ul className="list-disc list-inside space-y-2">
+              <li>Temp</li>
+              <li>Temp</li>
+              <li>Temp</li>
+              <li>Temp</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -122,15 +163,15 @@ export default function Home() {
 
       {/* Projects */}
       <section id="projects" className="min-h-screen snap-start flex flex-col justify-center gap-8">
-  <h2 className="text-3xl font-semibold">Projects</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <div className="project-card hover:scale-105 transition-all">
-      <img src="/images/project1.gif" alt="Project 1" className="w-full rounded-lg" />
-      <h3 className="mt-2 font-semibold">Project 1</h3>
-    </div>
-    {/* more cards */}
-  </div>
-</section>
+        <h2 className="text-3xl font-semibold">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="project-card hover:scale-105 transition-all">
+            <img src="/images/project1.gif" alt="Project 1" className="w-full rounded-lg" />
+            <h3 className="mt-2 font-semibold">Project 1</h3>
+          </div>
+          {/* more cards */}
+        </div>
+      </section>
 
 
       {/* Contact Me */}

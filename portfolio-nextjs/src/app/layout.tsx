@@ -79,10 +79,7 @@ export default function RootLayout({ children,
 
 
         {/* Main content with background and shooting star effect */}
-        <div className="ml-50 p-8 relative bg-cover bg-center" style={{
-          backgroundImage: 'url("/images/starrynight.jpg")',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', // 50% transparency for the background
-        }}>
+        <div className="ml-50 p-8 relative bg-cover bg-center">
           {/* Shooting Star Effect */}
           <div className="shooting-star"></div>
           {children}
