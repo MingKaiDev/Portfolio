@@ -64,3 +64,69 @@ body {
   animation-delay: 0.5s;
 }
 
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.shimmer-bg{
+  background-image:
+    radial-gradient(60rem 30rem at -20% -50%, rgba(106,35,221,.22), transparent 60%),
+    linear-gradient(90deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.18) 50%, rgba(255,255,255,.06) 100%),
+    radial-gradient(80rem 40rem at 120% 120%, rgba(59,130,246,.18), transparent 60%);
+  background-size: 100% 100%, 200% 100%, 100% 100%;
+  animation: shimmer 1.8s linear infinite;
+  filter: saturate(110%);
+}
+
+/* SSR-safe starry background (no randomness) */
+/* SSR-safe starry background with built-in gradient */
+.star-bg {
+  /* deep backdrop gradient */
+  background:
+    radial-gradient(1400px 800px at 20% 15%, rgba(106,35,221,0.15), rgba(0,0,0,0) 60%),
+    radial-gradient(1200px 700px at 80% 85%, rgba(59,130,246,0.12), rgba(0,0,0,0) 65%),
+    linear-gradient(135deg, #0b0c15 0%, #10111d 50%, #0b0c15 100%);
+  position: absolute;
+  inset: 0;
+}
+
+/* star layers (no randomness, SSR-friendly) */
+.star-bg::before,
+.star-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* dense small stars layer */
+.star-bg::before {
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,.9) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 78% 12%, rgba(255,255,255,.7) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 32% 72%, rgba(255,255,255,.8) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 64% 44%, rgba(255,255,255,.6) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 90% 78%, rgba(255,255,255,.7) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 8% 84%,  rgba(255,255,255,.65) 50%, transparent 51%);
+  background-size: 200px 200px, 240px 240px, 220px 220px, 260px 260px, 300px 300px, 280px 280px;
+  animation: starTwinkle 10s linear infinite;
+  opacity: 0.95;
+}
+
+/* a few brighter, larger stars very faint */
+.star-bg::after {
+  background-image:
+    radial-gradient(2px 2px at 15% 60%, rgba(255,255,255,.45) 50%, transparent 51%),
+    radial-gradient(2px 2px at 55% 35%, rgba(255,255,255,.35) 50%, transparent 51%),
+    radial-gradient(2.5px 2.5px at 82% 25%, rgba(255,255,255,.35) 50%, transparent 51%);
+  background-size: 500px 500px;
+  animation: starTwinkle 14s linear infinite reverse;
+  opacity: 0.7;
+}
+
+@keyframes starTwinkle {
+  0%   { filter: brightness(1);   background-position: 0 0; }
+  50%  { filter: brightness(1.15); background-position: 10px 6px; }
+  100% { filter: brightness(1);   background-position: 0 0; }
+}
+
