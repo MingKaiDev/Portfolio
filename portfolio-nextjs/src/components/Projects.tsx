@@ -1,38 +1,52 @@
-// ProjectsSection.tsx
+"use client";
+import { useState } from "react";
+
 type Project = {
   title: string;
   purpose: string;
-  gif?: string | null; // path to your real gif when ready
+  gif?: string | null;
 };
 
 const projects: Project[] = [
-  { title: "Game - Tierlist",        purpose: "A block page for me to rank and comments upon the games I played.", gif: null },
-  { title: "Zylar’s World",          purpose: "Philosophy-Based game with puzzles to solved.", gif: null },
-  { title: "Project Turn-Based",     purpose: "Current Project looking to emulate Fire Emblem style.", gif: null },
-  { title: "Port Navigation App (PSA Codesprint)", purpose: "Mobile POC for port routing & berth lookup.", gif: null },
-  { title: "RouteRunner",            purpose: "Pathfinding visualizer for delivery drivers with handler and runner system running on heuristics and metrics.", gif: null },
-  { title: "MDP Android Dev",        purpose: "Android client for robotics movement & telemetry.", gif: null },
+  {
+    title: "Game - Tierlist",
+    purpose: "A blog page for me to rank and comments upon the games I played.",
+    gif: "/images/game-tierlist.gif"
+  },
+  { title: "Zylar’s World", purpose: "Philosophy-Based game with puzzles to solved.", gif: "/images/ZW.gif" },
+  { title: "Project Turn-Based", purpose: "Current Project looking to emulate Fire Emblem style.", gif: null },
+  { title: "Port Navigation App (PSA Codesprint)", purpose: "Mobile POC for port routing & berth lookup.", gif: "/images/PSA.gif" },
+  { title: "RouteRunner", purpose: "Pathfinding visualizer for delivery drivers with handler and runner system running on heuristics and metrics.", gif: "/images/RR.gif" },
+  { title: "MDP Android Dev", purpose: "Android client for robotics movement & telemetry.", gif: "/images/MDP.gif" },
 ];
 
 function ProjectCard({ p }: { p: Project }) {
   return (
     <article className="group rounded-2xl bg-slate-900/70 border border-white/10 overflow-hidden shadow-lg hover:shadow-xl hover:border-purple-400/30 transition">
       {/* Media */}
-      <div className="relative aspect-[16/9]">
-        {/* If you already have a GIF, drop it in here */}
+      <div className="relative aspect-[16/9] overflow-hidden">
         {p.gif ? (
-          <img
-            src={p.gif}
-            alt={`${p.title} preview`}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <>
+            {/* Frozen first frame (drawn as background) */}
+            <div
+              className="absolute inset-0 bg-center bg-cover"
+              style={{ backgroundImage: `url(${p.gif})` }}
+              aria-hidden
+            />
+
+            {/* Playing GIF only on hover */}
+            <img
+              src={p.gif}
+              alt={`${p.title} preview`}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            />
+          </>
         ) : (
-          // Animated placeholder that feels like a classy GIF
           <div className="w-full h-full shimmer-bg" aria-hidden />
         )}
 
-        {/* subtle top gradient for readability on hover */}
+        {/* subtle gradient for text readability */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 opacity-70" />
       </div>
 
@@ -44,20 +58,9 @@ function ProjectCard({ p }: { p: Project }) {
         <p className="mt-2 text-[clamp(.9rem,1.2vw,1rem)] text-gray-300 leading-relaxed">
           {p.purpose}
         </p>
-
-        {/* Optional CTA row (disabled until links ready) */}
-        <div className="mt-4 flex items-center gap-3">
-          <button
-            disabled
-            className="px-3 py-1.5 rounded-lg bg-white/10 text-white/80 border border-white/15 cursor-not-allowed"
-          >
-            Details soon
-          </button>
-          <span className="text-xs text-gray-400 hidden sm:inline">
-            GIFs coming; using animated placeholders.
-          </span>
-        </div>
       </div>
+
+      
     </article>
   );
 }
@@ -74,8 +77,6 @@ export default function Projects() {
           <ProjectCard key={p.title} p={p} />
         ))}
       </div>
-
-      
     </section>
   );
 }
