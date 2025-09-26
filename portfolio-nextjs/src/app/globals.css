@@ -130,3 +130,22 @@ body {
   100% { filter: brightness(1);   background-position: 0 0; }
 }
 
+/* Visibility helpers */
+.only-desktop { display: block; }
+.only-mobile  { display: none; }
+@media (max-width: 1024px) {
+  .only-desktop { display: none; }
+  .only-mobile  { display: flex; }
+}
+
+/* Frosted glass shell used by nav */
+.nav-glass {
+  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--background) 70%, transparent);
+  border-right: 1px solid rgba(255,255,255,.12);
+}
+
+/* Accent for links (hover/focus) */
+.nav-link { transition: color .2s ease, transform .2s ease; }
+.nav-link:focus-visible { outline: 2px solid rgba(168,85,247,.5); outline-offset: 2px; }
+.glow { filter: drop-shadow(0 0 8px currentColor); }
