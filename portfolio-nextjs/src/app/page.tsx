@@ -72,10 +72,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
-
-
       <section id="skills" className="mt-10">
         {/* Criss-Cross design for resume content */}
         <Skills />
