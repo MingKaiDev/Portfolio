@@ -149,3 +149,4 @@ body {
 .nav-link { transition: color .2s ease, transform .2s ease; }
 .nav-link:focus-visible { outline: 2px solid rgba(168,85,247,.5); outline-offset: 2px; }
 .glow { filter: drop-shadow(0 0 8px currentColor); }
+

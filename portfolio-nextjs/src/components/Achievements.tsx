@@ -13,7 +13,7 @@ type Cert = {
 
 const certs: Cert[] = [
   {
-    title: "AWS Certified Solutions Architect",
+    title: "AWS Solutions Architect Associate",
     issuer: "Amazon Web Services",
     level: "Associate",
     date: "2025",
@@ -35,8 +35,8 @@ const certs: Cert[] = [
 function AchievementCard({ c }: { c: Cert }) {
   return (
     <article className="rounded-2xl bg-slate-900/70 border border-white/10 p-6 md:p-8 shadow-lg hover:shadow-xl hover:border-purple-500/30 transition">
-      <div className="flex items-start gap-6">
-        {/* Left: oversized “image” icon on gradient badge */}
+      <div className="flex flex-col items-center text-center gap-4 md:flex-row md:items-start md:text-left md:gap-6">
+        {/* Icon always visible */}
         <div
           className="shrink-0 rounded-2xl p-4 md:p-5
                      bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,.35),rgba(59,130,246,.25)_40%,rgba(2,6,23,.9)_70%)]
@@ -46,37 +46,46 @@ function AchievementCard({ c }: { c: Cert }) {
           <SiAmazon className="text-[2.6rem] md:text-[3.2rem] lg:text-[3.6rem] text-amber-300" />
         </div>
 
-        {/* Right: content */}
-        <div className="min-w-0">
-          <h3 className="text-[clamp(1.1rem,2.2vw,1.5rem)] font-semibold text-white">
-            {c.title} <span className="text-white/70">({c.level})</span>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+          {/* Mobile title (small, visible only on <md) */}
+          <h3 className="block md:hidden text-base font-semibold text-white">
+            {c.title}
           </h3>
-          <div className="mt-1 flex flex-wrap gap-2 text-sm">
-            <span className="px-2 py-1 rounded-full bg-white/10 text-gray-200">{c.issuer}</span>
-            {c.date && <span className="px-2 py-1 rounded-full bg-white/5 text-gray-300">{c.date}</span>}
+
+          {/* Desktop/full content */}
+          <div className="hidden md:block min-w-0">
+            <h3 className="text-[clamp(1.1rem,2.2vw,1.5rem)] font-semibold text-white">
+              {c.title} <span className="text-white/70">({c.level})</span>
+            </h3>
+            <div className="mt-1 flex flex-wrap gap-2 text-sm">
+              <span className="px-2 py-1 rounded-full bg-white/10 text-gray-200">{c.issuer}</span>
+              {c.date && (
+                <span className="px-2 py-1 rounded-full bg-white/5 text-gray-300">{c.date}</span>
+              )}
+            </div>
+            <p className="mt-3 text-[clamp(.95rem,1.2vw,1.05rem)] text-gray-300 leading-relaxed">
+              {c.blurb}
+            </p>
           </div>
 
-          <p className="mt-3 text-[clamp(.95rem,1.2vw,1.05rem)] text-gray-300 leading-relaxed">
-            {c.blurb}
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            {/* Badge link */}
+          {/* Badge link (always visible) */}
+          <div className="mt-2 md:mt-5 flex flex-wrap gap-3">
             <a
               href={c.badgeUrl ?? "#"}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-500 transition disabled:opacity-40"
+              className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-500 transition"
             >
               View Badge
             </a>
-            
           </div>
         </div>
       </div>
     </article>
   );
 }
+
+
 
 export default function Achievements() {
   return (
