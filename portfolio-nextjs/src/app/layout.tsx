@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SidebarNav toggleTheme={() => {}} theme="light" />
+        <SidebarNav toggleTheme={() => {}} theme="dark" />
         <div className="relative lg:ml-40 ml-0 pt-14 lg:pt-0 p-8">
           <div className="shooting-star"></div>
           {children}
