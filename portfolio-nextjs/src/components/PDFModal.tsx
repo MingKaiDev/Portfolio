@@ -8,11 +8,19 @@ export default function PDFModal({ open, onClose, src, title = "Resume" }: Props
   const [mounted, setMounted] = useState(false);
   const [failedInline, setFailedInline] = useState(false);
 
-  const isIOS = useMemo(() => {
-    if (typeof navigator === "undefined") return false;
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-           (navigator.platform === "MacIntel" && (navigator as any).maxTouchPoints > 1);
-  }, []);
+  function getMaxTouchPoints(nav: Navigator): number {
+  return "maxTouchPoints" in nav && typeof (nav as { maxTouchPoints?: number }).maxTouchPoints === "number"
+    ? (nav as { maxTouchPoints: number }).maxTouchPoints
+    : 0;
+}
+
+const isIOS = useMemo(() => {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  const isiOS = /iPad|iPhone|iPod/.test(ua);
+  const isIPadOS = navigator.platform === "MacIntel" && getMaxTouchPoints(navigator) > 1;
+  return isiOS || isIPadOS;
+}, []);
 
   useEffect(() => { setMounted(true); }, []);
 
