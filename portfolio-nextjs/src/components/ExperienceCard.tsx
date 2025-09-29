@@ -59,11 +59,11 @@ export default function ExperienceCard({
       </div>
 
       {/* Bullets – visible on md+, hidden on mobile (moved under Read more) */}
-      <ul className="hidden md:block space-y-2 leading-relaxed text-gray-200">
-        {bullets.map((b, i) => (
-          <li key={i}>{b}</li>
-        ))}
-      </ul>
+      <ul className="md:block list-disc pl-6 space-y-2 leading-relaxed text-gray-200 marker:text-purple-400">
+  {bullets.map((b, i) => (
+    <li key={i}>{b}</li>
+  ))}
+</ul>
 
       {/* 5) Read more – mobile shows bullets + details inside; desktop shows only details here */}
       <details className="mt-4 group">

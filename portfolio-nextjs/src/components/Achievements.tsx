@@ -1,5 +1,6 @@
 // AchievementsSection.tsx
-import { SiAmazon } from "react-icons/si";
+import Image from "next/image";            // + add this
+// import { SiAmazon } from "react-icons/si"; // – no longer needed if you prefer images only
 
 type Cert = {
   title: string;
@@ -7,8 +8,9 @@ type Cert = {
   level: "Associate" | "Foundational";
   date?: string;
   blurb: string;
-  badgeUrl?: string;   // link to your Credly/Badge image page
-  verifyUrl?: string;  // verification URL (optional)
+  badgeUrl?: string;
+  verifyUrl?: string;
+  imageSrc: string;                        // + add this
 };
 
 const certs: Cert[] = [
@@ -19,7 +21,8 @@ const certs: Cert[] = [
     date: "2025",
     blurb:
       "Designs cost-optimized, resilient, and secure architectures on AWS. Covers IAM, networking, storage, compute, and Well-Architected practices.",
-    badgeUrl: "https://www.credly.com/badges/a3563ffa-c105-4cbd-ba73-8190d286e0b9/linked_in_profile",     // TODO: paste your badge link
+    badgeUrl: "https://www.credly.com/badges/a3563ffa-c105-4cbd-ba73-8190d286e0b9/linked_in_profile",
+    imageSrc: "/images/aws%20saa.png",     // + use your PNG
   },
   {
     title: "AWS Certified Cloud Practitioner",
@@ -28,7 +31,8 @@ const certs: Cert[] = [
     date: "2024",
     blurb:
       "Validates cloud fluency: core AWS services, billing & pricing, shared responsibility model, and basic security best practices.",
-    badgeUrl: "https://www.credly.com/badges/b8325090-3804-446f-a170-d0177e8aba8f/linked_in_profile",     // TODO: paste your badge link
+    badgeUrl: "https://www.credly.com/badges/b8325090-3804-446f-a170-d0177e8aba8f/linked_in_profile",
+    imageSrc: "/images/aws%20cpp.png",     // + use your PNG
   },
 ];
 
@@ -36,23 +40,25 @@ function AchievementCard({ c }: { c: Cert }) {
   return (
     <article className="rounded-2xl bg-slate-900/70 border border-white/10 p-6 md:p-8 shadow-lg hover:shadow-xl hover:border-purple-500/30 transition">
       <div className="flex flex-col items-center text-center gap-4 md:flex-row md:items-start md:text-left md:gap-6">
-        {/* Icon always visible */}
+        {/* Badge image (replaces icon) */}
         <div
-          className="shrink-0 rounded-2xl p-4 md:p-5
-                     bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,.35),rgba(59,130,246,.25)_40%,rgba(2,6,23,.9)_70%)]
+          className="shrink-0 rounded-2xl p-3 md:p-4 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,.35),rgba(59,130,246,.25)_40%,rgba(2,6,23,.9)_70%)]
                      ring-1 ring-white/10 shadow-[0_0_40px_-10px_rgba(99,102,241,0.6)]"
           aria-hidden
         >
-          <SiAmazon className="text-[2.6rem] md:text-[3.2rem] lg:text-[3.6rem] text-amber-300" />
+          <Image
+            src={c.imageSrc}
+            alt={`${c.title} badge`}
+            width={120}
+            height={120}
+            className="w-[72px] h-[72px] md:w-[96px] md:h-[96px] object-contain"
+            priority
+          />
         </div>
 
+        {/* …rest unchanged… */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
-          {/* Mobile title (small, visible only on <md) */}
-          <h3 className="block md:hidden text-base font-semibold text-white">
-            {c.title}
-          </h3>
-
-          {/* Desktop/full content */}
+          <h3 className="block md:hidden text-base font-semibold text-white">{c.title}</h3>
           <div className="hidden md:block min-w-0">
             <h3 className="text-[clamp(1.1rem,2.2vw,1.5rem)] font-semibold text-white">
               {c.title} <span className="text-white/70">({c.level})</span>
@@ -68,7 +74,6 @@ function AchievementCard({ c }: { c: Cert }) {
             </p>
           </div>
 
-          {/* Badge link (always visible) */}
           <div className="mt-2 md:mt-5 flex flex-wrap gap-3">
             <a
               href={c.badgeUrl ?? "#"}
@@ -84,6 +89,7 @@ function AchievementCard({ c }: { c: Cert }) {
     </article>
   );
 }
+
 
 
 

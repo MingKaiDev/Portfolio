@@ -46,13 +46,13 @@ export default function Home() {
             role="Site Reliability Engineer (Intern)"
             dates="May 2025 – Dec 2025"
             bullets={[
-              "Guided workflow UI for critical ops with timers/branching → faster execution & auditability.",
-              "Automated approvals on low-code platform → reduced manual effort & error rate.",
-              "UAT for notifications: designed cases, found critical bugs, unblocked release.",
-              "ITSM requirements: aligned stakeholders & clarified docs for system design.",
+              "Developed Web App for observability",
+              "Automated workflows (Power Automate)",
+              "Led UAT for notifications",
+              "Organised and gathered business requirements",
             ]}
-            tags={["SRE", "Automation", "Low-code", "UAT", "Observability"]}
-            details="Built logging hooks, status dashboards, and guardrails; documented runbooks; paired with devs on incident drills."
+            tags={["SRE", "Automation", "Web Development", "Observability"]}
+            details="Timers/branching UI improved execution speed and auditability. Automation reduced manual effort and error rate. UAT designed cases, surfaced critical bugs, and unblocked release. Aligned stakeholders and refined system docs. Also built logging hooks, status dashboards, and guardrails; documented runbooks; paired with devs on incident drills."
           />
 
           <ExperienceCard
@@ -61,13 +61,14 @@ export default function Home() {
             role="Technical Assistant"
             dates="Mar 2021 – Sep 2021"
             bullets={[
-              "Computer vision pipelines in Python → tracked mechanical parts reliably.",
-              "Integrated subroutines → higher accuracy & performance in real scenarios.",
-              "Autonomous-driving sim (CARLA): scripted tests for vehicle behaviors.",
-              "DJI + OpenCV research for pathfinding & ground-nav experiments.",
+              "Built CV pipelines (Python/OpenCV)",
+              "Raised accuracy & performance",
+              "CARLA autonomous-driving test scripts",
+              "Pathfinding & ground-nav experiments",
             ]}
-            tags={["Python", "OpenCV", "CARLA", "Algorithms", "Testing"]}
-            details="Authored flowcharts & stress-tests; consolidated results to guide model tweaks and lab demos."
+            tags={["Python", "Computer Vision", "RPI", "Algorithms"]}
+            details="Tracked mechanical parts reliably; integrated subroutines for higher accuracy and throughput; scripted vehicle-behavior tests in CARLA; DJI + OpenCV pathfinding/ground-nav R&D. Authored flowcharts and stress-tests; consolidated findings to guide model tweaks and lab demos."
+
           />
         </div>
       </section>
@@ -89,51 +90,51 @@ export default function Home() {
 
 
       {/* Contact Me */}
-<section
-  id="contact"
-  className="relative w-full snap-start h-screen overflow-hidden"
->
-  {/* Starry background + gradient */}
-  <div className="absolute inset-0 z-0 star-bg" aria-hidden />
-
-  {/* Content */}
-  <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
-    <h2 className="text-[clamp(2rem,6vw,3.5rem)] font-bold text-white mb-6 tracking-wide text-center">
-      Contact Me
-    </h2>
-
-    <p className="text-[clamp(1.5rem,4vw,2rem)] font-extrabold text-purple-400 mb-4 animate-pulse text-center">
-      Let&apos;s Work Together!
-    </p>
-
-    <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-300 mb-12 text-center max-w-xl">
-      You can reach out to me through my social links below or send me an email. 
-      I&apos;m always happy to connect!
-    </p>
-
-    {/* Social icons */}
-    <div className="flex flex-row items-center justify-center gap-10 sm:gap-16">
-      <a
-        href="https://www.linkedin.com/in/ming-kai-gay-2306aa163"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[clamp(3rem,8vw,5rem)] text-blue-600 hover:text-blue-800 transform hover:scale-110 transition duration-300"
-        aria-label="LinkedIn"
+      <section
+        id="contact"
+        className="relative w-full snap-start h-screen overflow-hidden"
       >
-        <FaLinkedin />
-      </a>
-      <a
-        href="https://github.com/MingKaiDev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[clamp(3rem,8vw,5rem)] text-gray-300 hover:text-gray-100 transform hover:scale-110 transition duration-300"
-        aria-label="GitHub"
-      >
-        <FaGithub />
-      </a>
-    </div>
-  </div>
-</section>
+        {/* Starry background + gradient */}
+        <div className="absolute inset-0 z-0 star-bg" aria-hidden />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
+          <h2 className="text-[clamp(2rem,6vw,3.5rem)] font-bold text-white mb-6 tracking-wide text-center">
+            Contact Me
+          </h2>
+
+          <p className="text-[clamp(1.5rem,4vw,2rem)] font-extrabold text-purple-400 mb-4 animate-pulse text-center">
+            Let&apos;s Work Together!
+          </p>
+
+          <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-300 mb-12 text-center max-w-xl">
+            You can reach out to me through my social links below or send me an email.
+            I&apos;m always happy to connect!
+          </p>
+
+          {/* Social icons */}
+          <div className="flex flex-row items-center justify-center gap-10 sm:gap-16">
+            <a
+              href="https://www.linkedin.com/in/ming-kai-gay-2306aa163"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[clamp(3rem,8vw,5rem)] text-blue-600 hover:text-blue-800 transform hover:scale-110 transition duration-300"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/MingKaiDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[clamp(3rem,8vw,5rem)] text-gray-300 hover:text-gray-100 transform hover:scale-110 transition duration-300"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+          </div>
+        </div>
+      </section>
 
 
     </main>

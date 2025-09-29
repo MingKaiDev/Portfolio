@@ -14,70 +14,81 @@ type Skill = {
 
 const skills: Skill[] = [
   {
-    title: "Front-end Development",
+    title: "Front-End Development",
     icon: <FaReact />,
-    blurb: "Building performant, accessible interfaces with component systems and subtle motion.",
+    blurb: "Built responsive, accessible UIs with clean component structure, smart state, and attention to performance.",
     bullets: [
-      "React / Next.js, routing & data fetching patterns",
-      "Design systems, reusable UI primitives, accessibility",
-      "Framer-Motion micro-interactions and hover reveals",
+      "Next.js App Router: server/client components, dynamic routes, lazy/dynamic import",
+      "Tailwind-first design: responsive layouts, theming, and a11y-conscious components",
+      "Interactive UX: carousels, modals (PDF viewer), search/filter, and form handling",
+      "Performance basics: image optimization, code-splitting, avoiding SSR hydration pitfalls",
     ],
-    tools: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+    tools: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    title: "Back-end Development",
-    icon: <FaNode />,
-    blurb: "APIs and services that are easy to observe, test, and scale.",
-    bullets: [
-      "REST/JSON APIs, auth, input validation",
-      "Data modeling & queries (SQL/NoSQL)",
-      "CI checks & integration tests for reliability",
-    ],
-    tools: ["Node.js", "Express", "PostgreSQL", "MongoDB"],
+    title: "Back-End & APIs",
+icon: <FaNode />,
+blurb: "Lean HTTP services and webhooks that are predictable, testable, and easy to monitor.",
+bullets: [
+  "RESTful endpoints & webhooks: clear JSON contracts, token/JWT auth",
+  "Schema validation & robust errors: safe parsing, guardrails, retries",
+  "Data access: simple models/queries with cached reads where useful",
+  "Ops basics: structured logs/metrics, health checks, Dockerized envs",
+],
+tools: ["Node.js", "Express/Flask", "Next.js API Routes", "TypeScript", "Firebase/MongoDB", "Docker"],
+
   },
   {
-    title: "Automation & SRE",
-    icon: <TbRobot />,
-    blurb: "Streamlining ops, reducing toil, and improving release readiness.",
-    bullets: [
-      "Guided workflow UIs with timers/branching for ops",
-      "Low-code pipelines to cut manual approvals & errors",
-      "UAT playbooks, logging hooks, dashboards & runbooks",
-    ],
-    tools: ["Microsoft Power Automate", "Shell/Python", "Observability/Dashboards"],
-  },
+  title: "Automation & Site Reliability",
+  icon: <TbRobot />,
+  blurb: "Shrink toil, harden releases, and make ops repeatable and observable.",
+  bullets: [
+    "Guided ops flows with timers/branching to standardize execution",
+    "Low-code automations to remove manual approvals and reduce errors",
+    "Release readiness: UAT playbooks, rollback paths, guardrails",
+    "Observability in practice: logging hooks, status dashboards, runbooks",
+  ],
+  tools: ["Power Automate", "Bash/Python", "Logs/Metrics Dashboards"],
+},
+
   {
     title: "Computer Vision",
-    icon: <SiOpencv />,
-    blurb: "Practical CV pipelines and experimentation.",
-    bullets: [
-      "Object/part tracking & evaluation scripts",
-      "Integrated multi-stage subroutines for throughput",
-      "CARLA simulation experiments & scripted tests",
-    ],
-    tools: ["Python", "OpenCV", "NumPy", "CARLA"],
+icon: <SiOpencv />,
+blurb: "Applied CV for part-tracking and navigation—from image capture to evaluation.",
+bullets: [
+  "Part/assembly tracking pipelines with reliability metrics",
+  "Integrated multi-stage routines to boost accuracy and throughput",
+  "CARLA scenario tests for vehicle behavior and edge-case evaluation",
+  "Camera acquisition with Matrox MIL: calibration and precise capture control",
+],
+tools: ["Python", "OpenCV", "Matrox MIL", "CARLA", "NumPy"],
   },
   {
     title: "Game Development",
-    icon: <SiUnity />,
-    blurb: "Systems, tools, and UX for gameplay.",
-    bullets: [
-      "Grid/pathfinding, state & turn controllers",
-      "Editor tooling for content iteration",
-      "VFX/UI polish and input feel",
-    ],
-    tools: ["Unity", "C#"],
+icon: <SiUnity />,
+blurb: "Prototype-driven gameplay with solid systems, fast iteration, and polished feel.",
+bullets: [
+  "Grid/pathfinding systems and turn/state controllers",
+  "Lightweight editor tools for rapid content iteration",
+  "Responsive input, UI/VFX polish, moment-to-moment feel",
+  "Physics and tuning passes to balance mechanics",
+  "Rapid prototyping to explore and refine ideas",
+],
+tools: ["Unity", "C#", "Raylib", "PyGame"],
+
   },
   {
     title: "UI/UX & Prototyping",
-    icon: <SiFigma />,
-    blurb: "User-first flows, tasteful typography, and quick iteration.",
-    bullets: [
-      "Wireframes → high-fidelity comps → implement",
-      "Design tokens & responsive layout rules",
-      "Usability polish (empty states, affordances, errors)",
-    ],
-    tools: ["Figma", "Tailwind CSS"],
+icon: <SiFigma />,
+blurb: "User-first flows that line up with system architecture—iterate fast from wireframes to shippable UI.",
+bullets: [
+  "Requirements → use cases → wireframes → clickable prototypes",
+  "System mapping: swimlanes & sequence diagrams for user/system steps; ER diagrams for data",
+  "Component specs: states/variants, a11y, typographic scale and spacing tokens",
+  "Validation & handoff: quick tests, iteration, redlines/specs aligned to endpoints and events",
+],
+tools: ["Figma", "Visual Paradigm"],
+
   },
 ];
 
@@ -148,11 +159,7 @@ export default function Skills() {
           <SkillCard key={s.title} skill={s} />
         ))}
       </div>
-      <div className="mt-6 flex flex-wrap items-center gap-4 opacity-70">
-        <SiTailwindcss className="text-2xl" />
-        <FaGithub className="text-2xl" />
-        <SiPython className="text-2xl" />
-      </div>
+      
     </section>
   );
 }

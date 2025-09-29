@@ -33,7 +33,7 @@ export default function AboutClient() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
-              {['Frontend (React/Next.js)', 'Automation', 'SRE / DevOps', 'Game Systems', 'UI/UX'].map((t) => (
+              {['Web Development', 'Automation', 'SRE / DevOps', 'Game Development', 'UI/UX'].map((t) => (
                 <span key={t} className="px-3 py-1 rounded-full text-[0.85rem] bg-white/5 text-gray-200 border border-white/10">
                   {t}
                 </span>
